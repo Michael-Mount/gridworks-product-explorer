@@ -17,7 +17,7 @@ export default function Home() {
         <section className="products-grid">
           {products.map((product) => {
             return (
-              <div key={product.id}>
+              <div className="product-card" key={product.id}>
                 <h2>{product.name}</h2>
                 <p>{product.model}</p>
                 <p>{product.category}</p>
