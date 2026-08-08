@@ -1,4 +1,5 @@
 import { products } from "@/data/products";
+import ProductCard from "@/compnents/ProductCard/ProductCard";
 
 export default function Home() {
   return (
@@ -16,19 +17,7 @@ export default function Home() {
         </section>
         <section className="products-grid">
           {products.map((product) => {
-            return (
-              <div className="product-card" key={product.id}>
-                <h2>{product.name}</h2>
-                <p>{product.model}</p>
-                <p>{product.category}</p>
-                <ul>
-                  {product.protocols.map((protocol) => {
-                    return <li key={protocol}>{protocol}</li>;
-                  })}
-                </ul>
-                <p>{product.description}</p>
-              </div>
-            );
+            return <ProductCard key={product.id} product={product} />;
           })}
         </section>
       </div>
