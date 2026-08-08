@@ -7,13 +7,13 @@ export const products: Product[] = [
     name: "Feeder Protection Relay",
     category: "protection",
     description:
-      "Advanced protection and monitoring for industrial electical distribution sysems.",
+      "Advanced protection and monitoring for industrial electrical distribution systems.",
     protocols: ["IEC 61850", "Modbus", "DNP3"],
     featured: true,
   },
   {
-    id: "ac-400",
-    model: "AC-400",
+    id: "ac-200",
+    model: "AC-200",
     name: "Automation Contoller",
     category: "automation",
     description:

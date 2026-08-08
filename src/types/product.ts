@@ -3,7 +3,7 @@ export type ProductCategory =
   | "automation"
   | "networking"
   | "monitoring"
-  | "communitcations"
+  | "communications"
   | "switching";
 
 export type Protocol =
