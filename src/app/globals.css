@@ -49,8 +49,22 @@ body {
   padding-inline: var(--space-md);
 }
 
-.products-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: var(--space-md);
+.intro {
+  margin-top: 25px;
+  margin-bottom: 50px;
+}
+
+.eyebrow {
+  color: var(--secondary-text);
+  font-size: clamp(0.75rem, 2vw, 1.5rem);
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 4rem);
+}
+
+.intro-descrption {
+  color: var(--secondary-text);
+  font-size: clamp(1rem, 2.5vw, 2rem);
+  max-width: 750px;
 }

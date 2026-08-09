@@ -3,4 +3,41 @@
   border: 2px solid var(--border-color);
   border-radius: var(--radius-md);
   padding: var(--space-md);
+  line-height: var(--space-md);
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.model {
+  font-size: 20px;
+  color: var(--secondary-text);
+}
+
+.name {
+  font-size: clamp(1rem, 1.5vw, 3rem);
+  line-height: var(--space-xl);
+}
+
+.category {
+  font-size: clamp(0.5rem, 0.75vw, 1.5rem);
+  text-transform: uppercase;
+}
+
+.description {
+  font-size: clamp(0.5rem, 0.75vw, 1.5rem);
+  line-height: var(--space-xl);
+}
+
+.protocols {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--radius-sm);
+  list-style: none;
+}
+
+.featured {
+  color: yellow;
 }
