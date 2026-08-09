@@ -1,9 +1,13 @@
-import { Product } from "@/types/product";
+import type { Product } from "@/types/product";
 import styles from "./ProductCard.module.css";
 
-export default function ProductCard({ product }: { product: Product }) {
+interface ProductCardProps {
+  product: Product;
+}
+
+export default function ProductCard({ product }: ProductCardProps) {
   return (
-    <div className={styles.card} key={product.id}>
+    <div className={styles.card}>
       <h2>{product.name}</h2>
       <p>{product.model}</p>
       <p>{product.category}</p>
@@ -13,6 +17,7 @@ export default function ProductCard({ product }: { product: Product }) {
         })}
       </ul>
       <p>{product.description}</p>
+      {product.featured && <p>Featured</p>}
     </div>
   );
 }
