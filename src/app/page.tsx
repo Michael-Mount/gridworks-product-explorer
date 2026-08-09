@@ -1,25 +1,22 @@
 import { products } from "@/data/products";
+import ProductGrid from "@/components/ProductGrid/ProductGrid";
 
 export default function Home() {
   return (
     <main>
-      <section>
-        {products.map((product) => {
-          return (
-            <div key={product.id}>
-              <h2>{product.name}</h2>
-              <p>{product.model}</p>
-              <p>{product.category}</p>
-              <ul>
-                {product.protocols.map((protocol) => {
-                  return <li key={protocol}>{protocol}</li>;
-                })}
-              </ul>
-              <p>{product.description}</p>
-            </div>
-          );
-        })}
-      </section>
+      <div className="container">
+        <section className="intro">
+          <p className="eyebrow">
+            Industrial technology for critical infrastructure.
+          </p>
+          <h1>Gridworks product systems</h1>
+          <p className="intro-description">
+            Explore protection, automation, networking, and monitoring products
+            engineered for modern industrial systems.
+          </p>
+        </section>
+        <ProductGrid products={products} />
+      </div>
     </main>
   );
 }
