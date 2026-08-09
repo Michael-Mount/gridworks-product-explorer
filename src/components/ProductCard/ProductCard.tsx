@@ -12,11 +12,11 @@ export default function ProductCard({ product }: ProductCardProps) {
         <p className={styles.model}>{product.model}</p>
         {product.featured && <p className={styles.featured}>Featured</p>}
       </div>
-      <h2 className={styles.name}>{product.name}</h2>
+      <h3 className={styles.name}>{product.name}</h3>
 
       <p className={styles.category}>{product.category}</p>
+      <p>Protocols:</p>
       <ul className={styles.protocols}>
-        Protocols:
         {product.protocols.map((protocol) => {
           return <li key={protocol}>{protocol}</li>;
         })}

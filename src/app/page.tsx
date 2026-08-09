@@ -10,7 +10,7 @@ export default function Home() {
             Industrial technology for critical infrastructure.
           </p>
           <h1>Gridworks product systems</h1>
-          <p className="intro-descrption">
+          <p className="intro-description">
             Explore protection, automation, networking, and monitoring products
             engineered for modern industrial systems.
           </p>

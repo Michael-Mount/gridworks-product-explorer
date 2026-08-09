@@ -10,7 +10,7 @@ interface ProductGridProps {
 
 export default function ProductGrid({ products }: ProductGridProps) {
   return (
-    <section className={styles.intro}>
+    <section className={styles.header}>
       <h2>All Avaliable Products</h2>
       <div className={styles.grid}>
         {products.map((product) => {

@@ -63,7 +63,7 @@ h1 {
   font-size: clamp(2rem, 5vw, 4rem);
 }
 
-.intro-descrption {
+.intro-description {
   color: var(--secondary-text);
   font-size: clamp(1rem, 2.5vw, 2rem);
   max-width: 750px;
