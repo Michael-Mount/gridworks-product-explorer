@@ -1,5 +1,5 @@
 import { products } from "@/data/products";
-import ProductCard from "@/components/ProductCard/ProductCard";
+import ProductGrid from "@/components/ProductGrid/ProductGrid";
 
 export default function Home() {
   return (
@@ -15,11 +15,7 @@ export default function Home() {
             engineered for modern industrial systems.
           </p>
         </section>
-        <section className="products-grid">
-          {products.map((product) => {
-            return <ProductCard key={product.id} product={product} />;
-          })}
-        </section>
+        <ProductGrid products={products} />
       </div>
     </main>
   );
