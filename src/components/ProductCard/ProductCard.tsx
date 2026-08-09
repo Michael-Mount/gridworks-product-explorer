@@ -7,7 +7,7 @@ interface ProductCardProps {
 
 export default function ProductCard({ product }: ProductCardProps) {
   return (
-    <div className={styles.card}>
+    <article className={styles.card}>
       <div className={styles.title}>
         <p className={styles.model}>{product.model}</p>
         {product.featured && <p className={styles.featured}>Featured</p>}
@@ -16,11 +16,12 @@ export default function ProductCard({ product }: ProductCardProps) {
 
       <p className={styles.category}>{product.category}</p>
       <ul className={styles.protocols}>
+        Protocols:
         {product.protocols.map((protocol) => {
           return <li key={protocol}>{protocol}</li>;
         })}
       </ul>
       <p className={styles.description}>{product.description}</p>
-    </div>
+    </article>
   );
 }
