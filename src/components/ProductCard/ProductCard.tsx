@@ -1,6 +1,8 @@
 import type { Product } from "@/types/product";
 import styles from "./ProductCard.module.css";
 
+import Badge from "../Badge/Badge";
+
 interface ProductCardProps {
   product: Product;
 }
@@ -10,7 +12,7 @@ export default function ProductCard({ product }: ProductCardProps) {
     <article className={styles.card}>
       <div className={styles.title}>
         <p className={styles.model}>{product.model}</p>
-        {product.featured && <p className={styles.featured}>Featured</p>}
+        <Badge product={product} />
       </div>
       <h3 className={styles.name}>{product.name}</h3>
 

@@ -3,7 +3,6 @@
   border: 2px solid var(--border-color);
   border-radius: var(--radius-md);
   padding: var(--space-md);
-  line-height: var(--space-md);
 }
 
 .title {
@@ -34,12 +33,8 @@
 .protocols {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--radius-sm);
+  gap: var(--space-sm);
   list-style: none;
   margin: 0;
   padding: 0;
-}
-
-.featured {
-  color: yellow;
 }

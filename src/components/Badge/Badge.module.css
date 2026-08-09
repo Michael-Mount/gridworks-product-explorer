@@ -1,0 +1,6 @@
+.featured {
+  border: yellow 1px solid;
+  background-color: rgba(255, 255, 171, 0.414);
+  padding: var(--space-sm);
+  border-radius: var(--radius-lg);
+}
