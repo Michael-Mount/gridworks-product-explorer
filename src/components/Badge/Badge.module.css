@@ -1,6 +1,19 @@
 .featured {
   border: yellow 1px solid;
   background-color: rgba(255, 255, 171, 0.414);
-  padding: var(--space-sm);
+  padding: var(--space-md);
+
+  text-transform: uppercase;
+  text-align: center;
+  border-radius: var(--radius-lg);
+}
+
+.default {
+  border: var(--border-color) 1px solid;
+  background-color: rgba(112, 112, 112, 0.414);
+  padding: var(--space-md);
+
+  text-transform: uppercase;
+  text-align: center;
   border-radius: var(--radius-lg);
 }

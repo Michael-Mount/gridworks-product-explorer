@@ -12,15 +12,19 @@ export default function ProductCard({ product }: ProductCardProps) {
     <article className={styles.card}>
       <div className={styles.title}>
         <p className={styles.model}>{product.model}</p>
-        <Badge product={product} />
+        {product.featured && <Badge text="Featured" badgeVariant="featured" />}
       </div>
       <h3 className={styles.name}>{product.name}</h3>
 
-      <p className={styles.category}>{product.category}</p>
+      <Badge text={product.category} badgeVariant="default" />
       <p>Protocols:</p>
       <ul className={styles.protocols}>
         {product.protocols.map((protocol) => {
-          return <li key={protocol}>{protocol}</li>;
+          return (
+            <li key={protocol}>
+              <Badge text={protocol} badgeVariant="default" />
+            </li>
+          );
         })}
       </ul>
       <p className={styles.description}>{product.description}</p>
