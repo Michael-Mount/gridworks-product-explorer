@@ -1,5 +1,5 @@
 import { products } from "@/data/products";
-import ProductGrid from "@/components/ProductGrid/ProductGrid";
+import ProductExplorer from "@/components/ProductExplorer/ProductExplorer";
 
 export default function Home() {
   return (
@@ -15,7 +15,7 @@ export default function Home() {
             engineered for modern industrial systems.
           </p>
         </section>
-        <ProductGrid products={products} />
+        <ProductExplorer products={products} />
       </div>
     </main>
   );
