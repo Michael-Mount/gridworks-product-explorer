@@ -12,7 +12,7 @@ export default function ProductExplorer({ products }: ProductExplorerProps) {
   const [showFeaturedProducts, setShowFeaturedProducts] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
 
-  const normalizedSearchTerm = searchTerm.toLowerCase();
+  const normalizedSearchTerm = searchTerm.toLowerCase().trim();
 
   //Search Terms
   const searchedProducts = products.filter((product) => {
@@ -24,11 +24,11 @@ export default function ProductExplorer({ products }: ProductExplorerProps) {
       .toLowerCase()
       .includes(normalizedSearchTerm);
 
-    const matchesDescripton = product.description
+    const matchesDescription = product.description
       .toLowerCase()
       .includes(normalizedSearchTerm);
 
-    return matchesName || matchesModel || matchesDescripton;
+    return matchesName || matchesModel || matchesDescription;
   });
 
   //Create a list of featured products from the search
@@ -36,7 +36,7 @@ export default function ProductExplorer({ products }: ProductExplorerProps) {
     (product) => product.featured,
   );
 
-  //decide wether the search displays or the displayed products from the search display
+  // Choose the final product list based on the featured-only toggle.
   const visibleProducts = showFeaturedProducts
     ? featuredProducts
     : searchedProducts;
@@ -52,13 +52,12 @@ export default function ProductExplorer({ products }: ProductExplorerProps) {
         />
       </label>
       <button
+        aria-pressed={showFeaturedProducts}
         onClick={() => {
-          setShowFeaturedProducts(
-            (showFeaturedProducts) => !showFeaturedProducts,
-          );
+          setShowFeaturedProducts((previous) => !previous);
         }}
       >
-        {showFeaturedProducts ? "All" : "Show Featured Products"}
+        {showFeaturedProducts ? "Show All Products" : "Show Featured Products"}
       </button>
       <ProductGrid products={visibleProducts} />
     </div>
