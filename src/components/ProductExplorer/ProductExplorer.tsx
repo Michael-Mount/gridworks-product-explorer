@@ -34,15 +34,21 @@ export default function ProductExplorer({ products }: ProductExplorerProps) {
     return matchesName || matchesModel || matchesDescription;
   });
 
+  const categoryFilteredProducts = searchedProducts.filter((product) => {
+    if (selectedCategory === "all" || selectedCategory === product.category) {
+      return product;
+    }
+  });
+
   //Create a list of featured products from the search
-  const featuredProducts = searchedProducts.filter(
+  const featuredProducts = categoryFilteredProducts.filter(
     (product) => product.featured,
   );
 
   // Choose the final product list based on the featured-only toggle.
   const visibleProducts = showFeaturedProducts
     ? featuredProducts
-    : searchedProducts;
+    : categoryFilteredProducts;
 
   return (
     <div>
