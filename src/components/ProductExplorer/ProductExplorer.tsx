@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import type { Product, ProductCategory } from "@/types/product";
+import type { Product, ProductCategory, Protocol } from "@/types/product";
 import ProductGrid from "../ProductGrid/ProductGrid";
 
 interface ProductExplorerProps {
@@ -14,6 +14,9 @@ export default function ProductExplorer({ products }: ProductExplorerProps) {
   const [selectedCategory, setSelectedCategory] = useState<
     ProductCategory | "all"
   >("all");
+  const [selectedProtocol, setSelectedProtocol] = useState<Protocol | "all">(
+    "all",
+  );
 
   const normalizedSearchTerm = searchTerm.toLowerCase().trim();
 
@@ -34,15 +37,30 @@ export default function ProductExplorer({ products }: ProductExplorerProps) {
     return matchesName || matchesModel || matchesDescription;
   });
 
-  //Create a list of featured products from the search
-  const featuredProducts = searchedProducts.filter(
+  //Category
+  const categoryFilteredProducts = searchedProducts.filter((product) => {
+    return selectedCategory === "all" || selectedCategory === product.category;
+  });
+
+  //Protocol
+  const protocolFilteredProducts = categoryFilteredProducts.filter(
+    (product) => {
+      return (
+        selectedProtocol === "all" ||
+        product.protocols.includes(selectedProtocol)
+      );
+    },
+  );
+
+  //Featured Products
+  const featuredProducts = protocolFilteredProducts.filter(
     (product) => product.featured,
   );
 
   // Choose the final product list based on the featured-only toggle.
   const visibleProducts = showFeaturedProducts
     ? featuredProducts
-    : searchedProducts;
+    : protocolFilteredProducts;
 
   return (
     <div>
@@ -70,6 +88,24 @@ export default function ProductExplorer({ products }: ProductExplorerProps) {
           <option value="monitoring">Monitoring</option>
           <option value="communications">Communications</option>
           <option value="switching">Switching</option>
+        </select>
+      </label>
+      <label>
+        Protocols:
+        <select
+          value={selectedProtocol}
+          onChange={(e) => {
+            const newProtocol = e.target.value as Protocol | "all";
+            setSelectedProtocol(newProtocol);
+          }}
+        >
+          <option value="all">All</option>
+          <option value="IEC 61850">IEC 61850</option>
+          <option value="Modbus">Modbus</option>
+          <option value="DNP3">DNP3</option>
+          <option value="Ethernet/IP">Ethernet/IP</option>
+          <option value="PRP">PRP</option>
+          <option value="SNMP">SNMP</option>
         </select>
       </label>
 
